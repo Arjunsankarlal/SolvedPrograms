@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+    int n,price,discount,i=0;
+    char product[100],leave[100];
+    scanf("%d",&n);
+    
+        int min;
+    for(i=0;i<n;i++){
+        scanf("%s %d %d",product,&price,&discount);
+        printf("%s",product);
+        if(i==0){
+            min=price;
+        }
+        int temp=((price*((float)discount/100)));//casting very important else error will occur
+        if(min>temp){
+            strcpy(leave,product);//leave=product;
+            min=temp;
+        }
+        printf("%d\n",min);
+    }
+    printf("%s",leave);
+
+    return 0;
+}
