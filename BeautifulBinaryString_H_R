@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+int main() {
+    int n;
+    cin >> n;
+    string a,t="010";
+    cin >> a;
+    int flag=1;
+    int step=0;
+    while(flag==1){
+       int i=0,signal=0;
+        while(i<a.length()){
+            if(a[i]=='1'){
+                i++;
+            }
+            else{
+                if(a.substr(i,3)=="010"){
+                    //cout<<"Yes";
+                    a[i+2]='1';
+                    step++;
+                    i=i+3;
+                    flag=1;
+                    signal=1;
+                }
+                else{
+                    i++;
+                }
+            }
+            if(signal==0){
+                flag=0;
+            }
+        }
+    }
+    cout<<step;
+    return 0;
+}
