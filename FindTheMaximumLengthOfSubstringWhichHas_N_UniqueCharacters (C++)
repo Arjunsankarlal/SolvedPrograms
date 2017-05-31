@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+int main(int argc, char** argv)
+{
+    string s;//,temps;
+    int n,m=0;
+    cin>>s>>n;
+    for(int i=0;i<s.length();i++){
+        for(int j=n;j<s.length();j++){
+            vector<char> temp;
+            for(int k=i;k<=j;k++){
+                if(k==i){
+                    temp.push_back(s[k]);
+                }
+                else{
+                    std::vector<char>::iterator it;
+                    it = find (temp.begin(), temp.end(), s[k]);
+                    if (it == temp.end())
+                        temp.push_back(s[k]);
+                }
+                if(temp.size()>n){
+                    break;
+                }
+                if(k==j && m<(j-i+1)){
+                    m=j-i+1;
+                    /*for(int z=k;z<=j;z++){
+                        temps+=s[z];
+                    }*/
+                }
+            }
+        }
+    }
+    cout<<m;//<<" "<<temps;
+    return 0;
+}
