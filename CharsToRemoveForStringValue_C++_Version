@@ -1,0 +1,86 @@
+#include <bits/stdc++.h>
+#include <vector>
+using namespace std;
+
+int main(){
+    short n;
+    cin>>n;
+    vector<string> words;
+    string ans,temp,temp1,common;
+    for(short i=0;i<n;i++){
+        string temp;
+        cin>>temp;
+        words.push_back(temp);
+    }
+    temp=words[0];
+    temp1=words[1];
+    for(int i=0;i<temp.length();i++){
+        std::size_t found = temp1.find(temp[i]);
+        if (found!=std::string::npos){
+            common+=temp[i];
+        }
+    }
+    for(int i=0;i<n;i++){
+        temp=words[i];
+        for(int j=0;j<words[i].length();j++){
+            std::size_t found = common.find(temp[j]);
+            if (found==std::string::npos){
+                ans+=temp[j];
+                break;
+            }
+        }
+    }
+    cout<<ans;
+
+return 0;
+}
+
+
+PROGRAM EXPLANATION:
+
+Chars To Remove For Same String Value
+
+N string values S1, S2, S3, SN are passed as input to the program. Values of S1, S2, S3, SN are such that if one character is removed from each of these string values, then the resulting string values are equal (same).
+The characters to be removed from the string values named C1, C2, C3, CN  will be different for each string.
+
+
+Input Format:
+The first line will contain the value of N.
+The next N lines will contain the values of strings S1 to SN.
+
+Boundary Conditions:
+2 <= N <= 10
+Length of string SN is from 2 to 200
+
+Output Format:
+The first line will contain the characters C1, C2, C3, .. CN to be removed from each of these string without any space between them.
+
+
+Example Input/Output 1:
+
+Input:
+2
+bmanabgerb
+manasgsesr
+
+Output:
+bs
+
+Explanation:
+If the character b is removed from the first string, it becomes manager.
+If the character s is removed from the second string, it becomes manager.
+Hence bs is printed as output.
+
+
+Example Input/Output 2:
+
+Input:
+5
+abcdef
+ambcde
+qabcdqe
+kkakbkckdke
+zabczdzzze
+
+Output:
+fmqkz
