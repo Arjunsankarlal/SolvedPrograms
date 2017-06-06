@@ -1,0 +1,63 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+int main()
+{
+	int x,y,z,count=0;
+	cin>>x>>y>>z;
+	if(x==z or y==z){
+        cout<<++count;
+	}
+	else{
+	   int flag=0;
+        if(x>z){
+            count++;
+            while(x>z){
+                x=x-y;
+                count++;
+                if(x==z){
+                    //count++;
+                    cout<<count;
+                    flag=1;
+                    break;
+                }
+            }
+            if(flag==0){
+                cout<<"-1";
+            }
+        }
+        else if(y>z){
+            count++;
+            while(y>z){
+                y=y-x;
+                count++;
+                if(y==z){
+                    //count++;
+                    cout<<count;
+                    flag=1;
+                    break;
+                }
+            }
+            if(flag==0){
+                cout<<"-1";
+            }
+        }
+        else{
+            cout<<"-1";
+        }
+	}
+
+	return 0;
+}
+
+
+Input:
+5         \\can one count
+3         \\can two count
+2         \\required count to filled in any one of the can
+
+output:
+2
+
+becoz first fill 5 litre can then pour it into 3 litre can. So after two operations now it is remaining with 2 litre that is what we require.
+
