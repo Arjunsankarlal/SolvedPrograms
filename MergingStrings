@@ -1,0 +1,29 @@
+#include <iostream>
+ 
+using namespace std;
+
+int main(int argc, char** argv)
+{
+    string a,b;
+    cin>>a>>b;
+    int count=0;
+    if(a==b)
+      cout<<a.length();
+    else{
+    for(int i=1;i<=b.length();i++){
+        string temp=b.substr(0,i);
+        size_t t=a.find(temp);
+        if(t!=-1){
+            count=temp.length();
+        }
+        else{
+            cout<<(a.length()+b.length()-count);
+            break;
+        }
+    }
+    }
+}
+
+Question:
+Two string will be given. A string's end will be the start of B string. Merge the two strings and form a 
+new string and print the length of the new string. 
