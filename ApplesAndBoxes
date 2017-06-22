@@ -1,3 +1,59 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main(int argc, char** argv)
+{
+    int n,q;
+    cin>>n>>q;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    int count=0;
+    for(int i=0;i<n;i++){
+        if(a[i]==q){
+            count++;
+            int t=a[i];
+            for(int k=0;k<n;k++){
+                if(a[k]==t){
+                    a[k]=0;
+                }
+            }
+        }
+        else if(a[i]!=0)
+            for(int j=i+1;j<n;j++){
+                if(a[i]+a[j]==q){
+                    int t=a[i],s=a[j];
+                    cout<<a[i]<<" "<<a[j]<<endl;
+                    for(int k=0;k<n;k++){
+                        if(a[k]==t){
+                            a[k]=0;
+                        }
+                    }
+                    for(int k=0;k<n;k++){
+                        if(a[k]==s){
+                            a[k]=0;
+                        }
+                    }
+                    for(int z=0;z<n;z++){
+                        cout<<a[z]<<" ";
+                    }
+                    cout<<endl;
+                    count++;
+                    break;
+                }
+            }
+    }
+    for(int i=0;i<n;i++){
+        cout<<a[i]<<" ";
+    }
+    cout<<endl<<count;
+
+
+}
+
+
 Apples and Boxes
 
 Alisha visits a fruit shop which has N boxes and each box has one or more apples in it. The shop keeper will not allow transfer of apples from one box to another. The number of apples in each of these N boxes is passed as the input. Suppose Alisha wishes to buy exactly K apples, the program has to print the distinct ways in which Alisha can pick and buy exactly K apples considering the fact that Alisha's bike can carry only a maximum of 2 boxes.
