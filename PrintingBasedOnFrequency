@@ -1,0 +1,57 @@
+#include <iostream>
+#include <string> 
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main(int argc, char** argv)
+{
+    string s;
+    cin>>s;
+    vector<int> num;
+    vector<int> fre;
+    for(int i=0;i<s.length();i++){
+        int flag=0;
+        for(int j=0;j<num.size();j++){
+            if(num[j]==s[i]-48){
+                flag=1;
+                break;
+            }
+        }
+        if(flag==0){
+            int count=0;
+            num.push_back(s[i]-48);
+            for(int j=0;j<s.length();j++){
+                if(s[j]==s[i]){
+                    count++;
+                }
+            }
+            fre.push_back(count);
+        }
+    }
+    for(int i=0;i<fre.size();i++){
+        for(int j=i+1;j<fre.size();j++){
+            if(fre[i]<fre[j]){
+                swap(fre[i],fre[j]);
+                swap(num[i],num[j]);
+            }
+            if(fre[i]==fre[j]){
+                if(num[i]>num[j]){
+                    swap(num[i],num[j]);
+                }
+            }
+        }
+    }
+    for(int i=0;i<num.size();i++){
+        for(int j=0;j<fre[i];j++){
+            cout<<num[i];
+        }
+    }
+
+}
+
+Input:
+A string containing numbers will be passed as input.
+eg 21213399
+the numbers should be printed based on the frequency if one or more numbers have the same frequency then the smaller number should be printed first.
+eg 11223399
