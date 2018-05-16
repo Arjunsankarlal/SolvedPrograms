@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+int main(){
+    int n,maxi=0;
+    cin>> n;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+        if(a[i]>maxi){
+            maxi=a[i];
+        }
+    }
+    for(int i=0;i<n;i++){
+        int diff=maxi,next=0;
+        for(int j=0;j<n;j++){
+            if(a[j]>a[i] && a[j]-a[i]<diff){
+                next=a[j];
+                diff=a[j]-a[i];
+            }
+        }
+        if(!next){
+            cout<<a[i]<<"->"<<" "<<endl;
+        }
+        else{
+            cout<<a[i]<<"->"<<next<<endl;
+        }
+    }
+    return 0;
+}
+
+
+Given an array of numbers. Display the next biggest number for each number in the array.
+Input: 
+5
+6,4,8,1,2
+Output: 
+6->8 
+4->6 
+8-> 
+1->2
+2->4
