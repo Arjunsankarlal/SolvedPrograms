@@ -1,0 +1,25 @@
+#include<iostream>
+#include<string>
+using namespace std;
+int main(){
+    string unformattedString;
+    getline(cin, unformattedString);
+    for(int i=1;i<unformattedString.length();i++){
+        if(unformattedString[i-1]==' ' && unformattedString[i]>96 && unformattedString[i]<123){
+            unformattedString[i]-=32;
+        }
+        else if(unformattedString[i]>64 && unformattedString[i]<91){
+            unformattedString[i]+=32;
+        }
+    }
+    if(unformattedString[0]>96 && unformattedString[0]<123){
+        unformattedString[0]-=32;
+    }
+    cout<<unformattedString;
+
+    return 0;
+}
+
+Given a sentence and every first letter of all words should be in capital letter.
+Input: zoHO coRporation 1st recruitment
+Output: Zoho Corporation 1st Recruitment
