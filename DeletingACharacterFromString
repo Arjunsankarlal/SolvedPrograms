@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main(){
+    string first, second;
+    cin>>first>>second;
+    for(int i=0;i<first.length();i++){
+        for(int j=0;j<second.length();j++){
+            if(first[i]==second[j]){
+                first.erase(i,1);
+                i--;
+            }
+        }
+    }
+    cout<<first;
+    return 0;
+}
+
+There are two strings S1 and s2. Remove the charecters in S1 which is present in s2. 
+Eg: 
+Input:
+ZohoCorp
+Co
+Output: 
+Zhrp
