@@ -1,0 +1,62 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int main(){
+    vector<char> parenthesis;
+    string input;
+    bool balanced = true;
+    cin>>input;
+    for(int i=0;i<input.length();i++){
+        if(input[i]==')'){
+            if(!(parenthesis.size()!=0 && parenthesis[parenthesis.size()-1]=='(')){
+                balanced = false;
+            }
+            parenthesis.pop_back();
+        }
+        else if(input[i]==']'){
+            if(!(parenthesis.size()!=0 && parenthesis[parenthesis.size()-1]=='[')){
+                balanced = false;
+            }
+            parenthesis.pop_back();
+        }
+        else if(input[i]=='}' ){
+            if(!(parenthesis.size()!=0 && parenthesis[parenthesis.size()-1]=='{')){
+                balanced = false;
+            }
+            parenthesis.pop_back();
+        }
+        else{
+            parenthesis.push_back(input[i]);
+        }
+    }
+    if(balanced && parenthesis.size()==0){
+        cout<<"balanced";
+    }
+    else{
+        cout<<"unbalanced";
+    }
+    return 0;
+}
+
+Check whether the giver parenthesis is balanced or not.
+
+Input:
+{}[]()
+
+output:
+balanced
+
+Input:
+{([])}
+
+output:
+balanced
+
+Input:
+{[)}
+
+Output:
+unbalanced
