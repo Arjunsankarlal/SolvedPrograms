@@ -1,0 +1,72 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int main(){
+    int n;
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    int starts, ends , temp, pop,j=0;
+    temp = a[0];
+    a[0] = 0;
+    ends = n-1;
+    starts = 1;
+    while(j!=n-1){
+        pop = a[ends];
+        a[ends] = temp;
+        j++;
+        if(j==n-1){
+            break;
+        }
+        temp = a[starts];
+        a[starts]=pop;
+        ends--;
+        starts++;
+        j++;
+    }
+    for(int i=0;i<n;i++){
+        cout<<a[i]<<" ";
+    }
+    return 0;
+}
+
+
+Input format:
+n
+1
+2
+.
+.
+.
+n values
+
+Make the first element zero and place the first element at the last. And the last element to the second. And the second element to the second last. Similarly have to proceed.
+
+Input sample:
+5
+1
+2
+3
+4
+5
+
+Output:
+0 5 4 2 1
+
+Input Sample:
+7
+1
+2
+3
+4
+5
+6
+7
+
+Output:
+0 7 6 5 3 2 1
