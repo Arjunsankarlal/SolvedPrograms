@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int main(){
+    string input,output="";
+    getline(cin, input);
+    int lastSpace = input.length();
+    for(int i=input.length()-1;i>=0;i--){
+        if(input[i]==' ' || i==0){
+            int j;
+            if(i==0){
+                j = i;
+            }
+            else{
+                j=i+1;
+            }
+            for(;j<lastSpace;j++){
+                output+=input[j];
+            }
+            lastSpace = i;
+            output+=' ';
+        }
+    }
+    cout<<output;
+    return 0;
+}
+
+Input:
+Hey there arjun
+
+Output:
+arjun there Hey
