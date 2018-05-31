@@ -1,0 +1,60 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    for(int i=0;i<t;i++){
+        int n;
+        cin>>n;
+        int a[n],maxi=0,sum=0;
+        for(int j=0;j<n;j++){
+            cin>>a[j];
+            if(a[j]>=0){
+                sum+=a[j];
+            }
+            else{
+                if(sum>maxi){
+                    maxi=sum;
+                }
+                sum=0;
+            }
+        }
+        if(sum>maxi){
+                    maxi=sum;
+        }
+        if(maxi==0){
+            maxi = -1;
+        }
+        cout<<maxi<<endl;
+    }
+    return 0;
+}
+
+
+Given an array containing both negative and positive integers. Find the contiguous sub-array with maximum sum.
+ 
+Input:
+The first line of input contains an integer T denoting the number of test cases. The description of T test cases follows. The first line of each test case contains a single integer N denoting the size of array. The second line contains N space-separated integers A1, A2, ..., AN denoting the elements of the array.
+ 
+Output:
+Print the maximum sum of the contiguous sub-array in a separate line for each test case.
+ 
+Constraints:
+1 ≤ T ≤ 200
+1 ≤ N ≤ 1000
+-100 ≤ A[i] <= 100
+ 
+Example:
+Input
+2
+3
+1 2 3
+4
+-1 -2 -3 -4
+Output
+6
+-1
